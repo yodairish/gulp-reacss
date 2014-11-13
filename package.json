@@ -1,0 +1,43 @@
+{
+  "name": "gulp-reacss",
+  "version": "0.0.1",
+  "description": "Gulp plugin for adding styles from a css files to the component",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yodairish/gulp-reacss.git"
+  },
+  "keywords": [
+    "gulpplugin",
+    "react",
+    "css"
+  ],
+  "dependencies": {
+    "gulp-util": "^3.0.1",
+    "through2": "^0.6.3",
+    "css": "^2.1.0",
+    "change-case": "^2.1.5"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1",
+    "mock-fs": "^2.3.2"
+  },
+  "author": {
+    "name": "Yodairish",
+    "email": "yodairish@gmail.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "files": [
+    "index.js"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yodairish/gulp-reacss/issues"
+  },
+  "homepage": "https://github.com/yodairish/gulp-reacss"
+}
