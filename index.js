@@ -4,7 +4,7 @@ var through = require('through2'),
     css = require('css'),
     changeCase = require('change-case');
 
-const PLUGIN_NAME = 'gulp-reactStyle';
+const PLUGIN_NAME = 'gulp-reacss';
 
 module.exports = function(){
   var filePath;
@@ -62,7 +62,7 @@ module.exports = function(){
   });
   
   /**
-   * get all reactCss templates in file
+   * get all reacss templates in file
    * @param {string} content
    * @return {Array.<string>}
    */
@@ -70,6 +70,11 @@ module.exports = function(){
     return content.match(/@\([^)]*\);?/g) || [];
   }
   
+  /**
+   * Get selector and files from template
+   * @param {string} template
+   * @return {Object}
+   */
   function parseTemplate(template){
     var obj, selectors, files;
     
@@ -100,6 +105,10 @@ module.exports = function(){
     };
   }
   
+  /**
+   * Remove extra symbols from values
+   * @param {Array.<string>} list
+   */
   function cleanValues(list){
     list.forEach(function(val, index, array){
       // remove quotes
@@ -114,6 +123,11 @@ module.exports = function(){
     });
   }
   
+  /**
+   * Concat all files and parse them to object
+   * @param {Array.<string>} files
+   * @return {Object}
+   */
   function getStyles(files){
     var styles = [];
       
@@ -130,6 +144,11 @@ module.exports = function(){
     return css.parse(styles.join(''), {});
   }
   
+  /**
+   * Get styles object by choosen selector and files
+   * @param {Array.<Object>} options
+   * @return {Object}
+   */
   function getInlineStyles(options){
     var styles = getStyles(options.files),
         selectors = options.selectors,
@@ -144,6 +163,11 @@ module.exports = function(){
     return inline;
   }
   
+  /**
+   * Validate selector
+   * @param {Object} rule
+   * @param {Array.<String>} selectors
+   */
   function isSelectorInRule(rule, selectors){
     var have = false;
     
@@ -157,6 +181,12 @@ module.exports = function(){
     return have;
   }
   
+  /**
+   * Add prop to styles object
+   * @param {Object} rule
+   * @param {Object} inline
+   * @return {Object}
+   */
   function addPropsFromRule(rule, inline){
     rule.declarations.forEach(function(dec){
       var prop = changeCase.camel(dec.property);

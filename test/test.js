@@ -1,9 +1,9 @@
 var assert = require('assert'),
     gutil = require('gulp-util'),
     fsMock = require('mock-fs'),
-    reactStyle = require('../');
+    reacss = require('../');
     
-const PLUGIN_NAME = 'gulp-reactStyle';
+const PLUGIN_NAME = 'gulp-reacss';
     
 describe(PLUGIN_NAME, function(){
   it('should transform templates to styles object', function(done){
@@ -19,7 +19,7 @@ describe(PLUGIN_NAME, function(){
       contents: new Buffer("var styles2 = @('.one', '.some .three' => 'styles/test.css', 'styles/test2.css')")
     });
     
-    var stream = reactStyle();
+    var stream = reacss();
     
     stream.on('data', function(file){
       assert(file.isBuffer());
