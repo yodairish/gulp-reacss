@@ -1,4 +1,4 @@
-# gulp-reacss
+# gulp-reacss [![Build Status](https://travis-ci.org/yodairish/gulp-reacss.svg?branch=master)](https://travis-ci.org/yodairish/gulp-reacss)
 
 Adding styles from a css files to the react component.
 Using templates where you set list of selectors and css files separated by comma.
