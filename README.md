@@ -15,6 +15,7 @@ $ npm install gulp-reacss --save-dev
 ## Usage
 
 ```js
+// component.js
 var styles = @('.some',
                '.some .one'
                 =>
@@ -30,6 +31,7 @@ var Component = React.createClass({
 ```
 
 ```js
+// gulpfile.js
 var gulp = require('gulp');
 var reacss = require('gulp-reacss');
 
